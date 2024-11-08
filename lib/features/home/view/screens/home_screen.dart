@@ -2,7 +2,7 @@ import 'package:clinic_system_patient/core/resources/color_manager.dart';
 import 'package:clinic_system_patient/core/resources/values_manager.dart';
 import 'package:clinic_system_patient/features/home/view/widgets/home_tab/home_tab.dart';
 import 'package:clinic_system_patient/features/notifications/view/widgets/notifications_tab.dart';
-import 'package:clinic_system_patient/features/profile/view/profile_tab.dart';
+import 'package:clinic_system_patient/features/profile/view/widgets/profile_tab.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar.dart';
 import 'package:curved_labeled_navigation_bar/curved_navigation_bar_item.dart';
 import 'package:flutter/material.dart';

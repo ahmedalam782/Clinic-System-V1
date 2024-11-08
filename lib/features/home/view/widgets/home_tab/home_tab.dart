@@ -83,151 +83,157 @@ class _HomeTabState extends State<HomeTab> {
     return SafeArea(
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: Insets.s24),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              Row(
-                children: [
-                  Column(
-                    children: [
-                      Text(
-                        "يوم سعيد محمد",
-                        style: getMediumStyle(
-                          color: ColorManager.black,
-                          fontSize: FontSize.s18,
-                        ),
-                      ),
-                      Text(
-                        "كيف حالك؟",
-                        style: getBoldStyle(
-                          color: ColorManager.black,
-                          fontSize: FontSize.s26,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Expanded(
-                    child: Image.asset(
-                      ImageAssets.hdImgHome,
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      Text(
-                        "M7md Henedy",
-                        style: getRegularStyle(
-                          color: ColorManager.black,
-                          fontSize: FontSize.s15,
-                        ),
-                      ),
-                      Row(
-                        children: [
-                          Text(
-                            "24 سنه ,",
-                            style: getRegularStyle(
-                              color: ColorManager.black,
-                              fontSize: FontSize.s15,
-                            ),
-                          ),
-                          const Icon(
-                            Icons.male,
-                            size: 15,
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                  const CircleAvatar(
-                    radius: 25,
-                    backgroundImage: AssetImage(
-                      ImageAssets.avatarImg,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: Sizes.s10.h,
-              ),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: Insets.s15, vertical: Insets.s15),
-                decoration: BoxDecoration(
-                    color: ColorManager.white,
-                    borderRadius: BorderRadius.all(
-                      Radius.circular(50.r),
-                    ),
-                    border: Border.all(
-                      width: .1,
-                      color: ColorManager.black.withOpacity(.25),
-                    ),
-                    boxShadow: [
-                      BoxShadow(
-                        blurRadius: 7,
-                        offset: const Offset(-2, 2),
-                        color: ColorManager.black.withOpacity(.15),
-                      )
-                    ]),
-                child: Row(
+        child: Column(
+          children: [
+            Row(
+              children: [
+                Column(
                   children: [
-                    Icon(
-                      Icons.search,
-                      color: ColorManager.black.withOpacity(.30),
-                    ),
-                    SizedBox(
-                      width: Sizes.s10.h,
+                    Text(
+                      "يوم سعيد محمد",
+                      style: getMediumStyle(
+                        color: ColorManager.black,
+                        fontSize: FontSize.s18,
+                      ),
                     ),
                     Text(
-                      "عن ما تبحث؟",
-                      style: getRegularStyle(
-                        color: ColorManager.black.withOpacity(.30),
-                        fontSize: FontSize.s15,
+                      "كيف حالك؟",
+                      style: getBoldStyle(
+                        color: ColorManager.black,
+                        fontSize: FontSize.s26,
                       ),
                     ),
                   ],
                 ),
-              ),
-              SizedBox(
-                height: Sizes.s20.h,
-              ),
-              CustomListViewWithLabel(
-                label: 'التخصصات',
-                itemBuilder: (_, index) => SpecializationsItems(
-                  specializationsModel: specializations[index],
+                Expanded(
+                  child: Image.asset(
+                    ImageAssets.hdImgHome,
+                  ),
                 ),
-                itemCount: specializations.length,
-                heightListView: 81,
-              ),
-              SizedBox(
-                height: Sizes.s20.h,
-              ),
-              const NextAppointment(),
-              SizedBox(
-                height: Sizes.s20.h,
-              ),
-              CustomListViewWithLabel(
-                label: 'أشهر الأطباء',
-                itemBuilder: (_, index) => FamousDoctorItems(
-                  famousDocModel: famousDoc[index],
+                Column(
+                  children: [
+                    Text(
+                      "M7md Henedy",
+                      style: getRegularStyle(
+                        color: ColorManager.black,
+                        fontSize: FontSize.s15,
+                      ),
+                    ),
+                    Row(
+                      children: [
+                        Text(
+                          "24 سنه ,",
+                          style: getRegularStyle(
+                            color: ColorManager.black,
+                            fontSize: FontSize.s15,
+                          ),
+                        ),
+                        const Icon(
+                          Icons.male,
+                          size: 15,
+                        ),
+                      ],
+                    ),
+                  ],
                 ),
-                itemCount: famousDoc.length,
-                heightListView: 165,
-              ),
-              SizedBox(
-                height: Sizes.s20.h,
-              ),
-              CustomListViewWithLabel(
-                label: 'آخر العروض',
-                itemBuilder: (_, index) => LastOfferItems(
-                  offerModel: offers[index],
+                const CircleAvatar(
+                  radius: 25,
+                  backgroundImage: AssetImage(
+                    ImageAssets.avatarImg,
+                  ),
                 ),
-                itemCount: offers.length,
-                heightListView: 123,
+              ],
+            ),
+            Expanded(
+              child: SingleChildScrollView(
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: Sizes.s10.h,
+                    ),
+                    Container(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: Insets.s15, vertical: Insets.s15),
+                      decoration: BoxDecoration(
+                          color: ColorManager.white,
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(50.r),
+                          ),
+                          border: Border.all(
+                            width: .1,
+                            color: ColorManager.black.withOpacity(.25),
+                          ),
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 7,
+                              offset: const Offset(-2, 2),
+                              color: ColorManager.black.withOpacity(.15),
+                            )
+                          ]),
+                      child: Row(
+                        children: [
+                          Icon(
+                            Icons.search,
+                            color: ColorManager.black.withOpacity(.30),
+                          ),
+                          SizedBox(
+                            width: Sizes.s10.h,
+                          ),
+                          Text(
+                            "عن ما تبحث؟",
+                            style: getRegularStyle(
+                              color: ColorManager.black.withOpacity(.30),
+                              fontSize: FontSize.s15,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: Sizes.s20.h,
+                    ),
+                    CustomListViewWithLabel(
+                      label: 'التخصصات',
+                      itemBuilder: (_, index) => SpecializationsItems(
+                        specializationsModel: specializations[index],
+                      ),
+                      itemCount: specializations.length,
+                      heightListView: 81,
+                    ),
+                    SizedBox(
+                      height: Sizes.s20.h,
+                    ),
+                    const NextAppointment(),
+                    SizedBox(
+                      height: Sizes.s20.h,
+                    ),
+                    CustomListViewWithLabel(
+                      label: 'أشهر الأطباء',
+                      itemBuilder: (_, index) => FamousDoctorItems(
+                        famousDocModel: famousDoc[index],
+                      ),
+                      itemCount: famousDoc.length,
+                      heightListView: 165,
+                    ),
+                    SizedBox(
+                      height: Sizes.s20.h,
+                    ),
+                    CustomListViewWithLabel(
+                      label: 'آخر العروض',
+                      itemBuilder: (_, index) => LastOfferItems(
+                        offerModel: offers[index],
+                      ),
+                      itemCount: offers.length,
+                      heightListView: 123,
+                    ),
+                    SizedBox(
+                      height: Sizes.s20.h,
+                    ),
+                  ],
+                ),
               ),
-              SizedBox(
-                height: Sizes.s20.h,
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

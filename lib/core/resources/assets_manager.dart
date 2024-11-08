@@ -28,4 +28,13 @@ class ImageAssets {
   static const String offerImg = '$_imagePath/offer_img.png';
   static const String offerImg2 = '$_imagePath/offer_img_2.png';
   static const String offerImg3 = '$_imagePath/offer_img_3.png';
+  static const String iconWarning = '$_imagePath/icon-warning.png';
+  static const String iconAvgTime = '$_imagePath/icon_avg-time.png';
+  static const String iconCheck = '$_imagePath/icon_check.png';
+  static const String iconInfo = '$_imagePath/icon_info.png';
+  static const String settingsIcon = '$_imagePath/settings_icon.png';
+  static const String creativeWritingProfile =
+      '$_imagePath/Creative_writing-profile.png';
+  static const String arrowBack = '$_imagePath/arrow-back-up-double.png';
+  static const String iconImageEdit = '$_imagePath/icon_image_edit.png';
 }
