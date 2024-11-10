@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import '../resources/color_manager.dart';
 import '../resources/font_manager.dart';
 import '../resources/styles_manager.dart';
@@ -15,6 +16,7 @@ class CustomTextField extends StatefulWidget {
     this.hint,
     this.isObscured = false,
     this.iconData,
+    this.textStyle,
     this.textInputType = TextInputType.text,
     this.backgroundColor,
     this.hintTextStyle,
@@ -27,6 +29,7 @@ class CustomTextField extends StatefulWidget {
     this.prefixIcon,
     this.borderBackgroundColor,
     this.suffixIcon,
+    this.contentPadding,
   });
 
   final TextEditingController? controller;
@@ -41,6 +44,7 @@ class CustomTextField extends StatefulWidget {
   final Color? borderBackgroundColor;
   final TextStyle? hintTextStyle;
   final TextStyle? labelTextStyle;
+  final TextStyle? textStyle;
   final Color? cursorColor;
   final bool readOnly;
   final int? maxLines;
@@ -48,6 +52,7 @@ class CustomTextField extends StatefulWidget {
   final Widget? suffixIcon;
   final String? Function(String?)? validation;
   final void Function()? onTap;
+  final EdgeInsetsGeometry? contentPadding;
 
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
@@ -77,10 +82,11 @@ class _CustomTextFieldState extends State<CustomTextField> {
           controller: widget.controller,
           focusNode: widget.focusNode,
           readOnly: widget.readOnly,
-          style: getMediumStyle(
-            color: ColorManager.black.withOpacity(.50),
-            fontSize: FontSize.s17,
-          ),
+          style: widget.textStyle ??
+              getMediumStyle(
+                color: ColorManager.black.withOpacity(.50),
+                fontSize: FontSize.s17,
+              ),
           obscureText: hidden,
           keyboardType: widget.textInputType,
           obscuringCharacter: '*',
@@ -104,7 +110,8 @@ class _CustomTextFieldState extends State<CustomTextField> {
             return errorText;
           },
           decoration: InputDecoration(
-            contentPadding: EdgeInsets.all(Insets.s15.sp),
+            contentPadding:
+                widget.contentPadding ?? EdgeInsets.all(Insets.s15.sp),
             hintText: widget.hint,
             prefixIcon: widget.prefixIcon,
             suffixIcon: widget.isObscured
@@ -129,7 +136,7 @@ class _CustomTextFieldState extends State<CustomTextField> {
                   color: ColorManager.black.withOpacity(.50),
                   fontSize: FontSize.s15,
                 ),
-            fillColor: widget.backgroundColor ??ColorManager.springWood,
+            fillColor: widget.backgroundColor ?? ColorManager.springWood,
             filled: true,
             border: OutlineInputBorder(
               gapPadding: 4,

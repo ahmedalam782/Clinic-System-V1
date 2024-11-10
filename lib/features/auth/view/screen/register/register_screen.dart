@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/resources/color_manager.dart';
-import '../../../../core/resources/font_manager.dart';
-import '../../../../core/resources/styles_manager.dart';
-import '../../../../core/resources/values_manager.dart';
-import '../../../../core/routes/routes.dart';
-import '../../../../core/utils/validator.dart';
-import '../../../../core/widgets/custom_elevated_button.dart';
-import '../../../../core/widgets/custom_text_field.dart';
-import '../widgets/custom_text_with_divider.dart';
+import '../../../../../core/resources/color_manager.dart';
+import '../../../../../core/resources/font_manager.dart';
+import '../../../../../core/resources/styles_manager.dart';
+import '../../../../../core/resources/values_manager.dart';
+import '../../../../../core/routes/routes.dart';
+import '../../../../../core/utils/validator.dart';
+import '../../../../../core/widgets/custom_elevated_button.dart';
+import '../../../../../core/widgets/custom_text_field.dart';
+import '../../widgets/custom_text_with_divider.dart';
 
 class RegisterScreen extends StatefulWidget {
   const RegisterScreen({super.key});
@@ -104,7 +104,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
                 ),
                 CustomElevatedButton(
                   label: 'انشاء حساب',
-                  onTap: () {},
+                  onTap: () => Navigator.of(context)
+                      .pushReplacementNamed(Routes.otpCode),
                 ),
                 SizedBox(
                   height: Sizes.s36.h,
@@ -132,7 +133,6 @@ class _RegisterScreenState extends State<RegisterScreen> {
         ),
       ),
     );
-
   }
 
   @override

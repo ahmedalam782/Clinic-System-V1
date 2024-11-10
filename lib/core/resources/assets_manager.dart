@@ -37,4 +37,11 @@ class ImageAssets {
       '$_imagePath/Creative_writing-profile.png';
   static const String arrowBack = '$_imagePath/arrow-back-up-double.png';
   static const String iconImageEdit = '$_imagePath/icon_image_edit.png';
+  static const String forgotPassword = '$_imagePath/Forgot_password.png';
+  static const String resetPassword = '$_imagePath/Reset_password.png';
+  static const String securityImage = '$_imagePath/Security_image.png';
+  static const String enterOtp = '$_imagePath/Enter OTP.png';
+  static const String authenticationSuccess =
+      '$_imagePath/Authentication_Success.png';
+  static const String error404 = '$_imagePath/404 error.png';
 }

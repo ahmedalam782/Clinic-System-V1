@@ -6,12 +6,12 @@ import 'package:clinic_system_patient/core/widgets/custom_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../../../core/resources/color_manager.dart';
-import '../../../../core/routes/routes.dart';
-import '../../../../core/utils/validator.dart';
-import '../../../../core/widgets/custom_elevated_button.dart';
-import '../widgets/custom_container_with_image.dart';
-import '../widgets/custom_text_with_divider.dart';
+import '../../../../../core/resources/color_manager.dart';
+import '../../../../../core/routes/routes.dart';
+import '../../../../../core/utils/validator.dart';
+import '../../../../../core/widgets/custom_elevated_button.dart';
+import '../../widgets/custom_container_with_image.dart';
+import '../../widgets/custom_text_with_divider.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -107,7 +107,8 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     const Spacer(),
                     TextButton(
-                      onPressed: () {},
+                      onPressed: () => Navigator.of(context)
+                          .pushNamed(Routes.forgotPassword),
                       child: Text(
                         "نسيت كلمة المرور",
                         style: getRegularStyle(
@@ -123,7 +124,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ),
                 CustomElevatedButton(
                   label: 'تسجيل الدخول',
-                  onTap: () => Navigator.of(context).pushReplacementNamed(Routes.home),
+                  onTap: () =>
+                      Navigator.of(context).pushReplacementNamed(Routes.home),
                 ),
                 SizedBox(
                   height: Sizes.s20.h,

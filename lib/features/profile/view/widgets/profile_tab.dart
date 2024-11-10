@@ -71,46 +71,57 @@ class ProfileTab extends StatelessWidget {
               SizedBox(
                 height: Sizes.s30.h,
               ),
-              ProfileItems(
+              const ProfileItems(
                 title: 'الايميل    : ',
                 data: 'mohamedkhhenedy@gmail.com',
               ),
               SizedBox(
                 height: Sizes.s10.h,
               ),
-              ProfileItems(
+              const ProfileItems(
                 title: 'الموبايل  : ',
                 data: '01009404933',
               ),
               SizedBox(
                 height: Sizes.s10.h,
               ),
-              ProfileItems(
+              const ProfileItems(
                 title: 'السن        :   ',
                 data: ' 24 سنه',
               ),
               SizedBox(
                 height: Sizes.s10.h,
               ),
-              ProfileItems(
+              const ProfileItems(
                 title: 'الجنس     :   ',
                 data: ' ذكر',
               ),
               SizedBox(
                 height: Sizes.s10.h,
               ),
-              ProfileItems(
-                title: 'الطول      :   ',
-                data: ' 180سم',
-              ),
-              SizedBox(
-                height: Sizes.s10.h,
-              ),
-              ProfileItems(
-                title: 'الوزن        :   ',
-                data: ' 78 كجم',
-              ),
-              Image.asset(ImageAssets.creativeWritingProfile)
+              Stack(
+                alignment: Alignment.topLeft,
+                children: [
+                  Column(
+                    children: [
+                      ProfileItems(
+                        title: 'الطول      :   ',
+                        data: ' 180سم',
+                      ),
+                      SizedBox(
+                        height: Sizes.s10.h,
+                      ),
+                      ProfileItems(
+                        title: 'الوزن        :   ',
+                        data: ' 78 كجم',
+                      ),
+                    ],
+                  ),
+                  Center(
+                    child: Image.asset(ImageAssets.creativeWritingProfile),
+                  ),
+                ],
+              )
             ],
           ),
         ),
