@@ -184,6 +184,7 @@ class _PersonalDataChangeState extends State<PersonalDataChange> {
                         color: ColorManager.primary,
                         fontSize: FontSize.s12,
                       ),
+                      decoration: const BoxDecoration(),
                       currentValue: lang,
                       firstValue: 'ذكر',
                       secondValue: 'اثني',

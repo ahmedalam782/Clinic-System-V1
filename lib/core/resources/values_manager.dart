@@ -32,4 +32,5 @@ class Sizes {
   static const double s90 = 90.0;
   static const double s100 = 100.0;
   static const double s140 = 140.0;
+  static const double s200 = 200.0;
 }

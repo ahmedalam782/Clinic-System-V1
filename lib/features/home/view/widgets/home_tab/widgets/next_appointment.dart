@@ -27,7 +27,7 @@ class NextAppointment extends StatelessWidget {
         ),
         Container(
           padding: const EdgeInsets.symmetric(
-              horizontal: Insets.s10, vertical: Insets.s17),
+              vertical: Insets.s24, horizontal: Insets.s8),
           decoration: BoxDecoration(
             color: ColorManager.primary,
             borderRadius: BorderRadius.all(
@@ -38,7 +38,7 @@ class NextAppointment extends StatelessWidget {
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: Insets.s15, vertical: Insets.s16),
+                    horizontal: Insets.s16, vertical: Insets.s16),
                 decoration: BoxDecoration(
                   color: ColorManager.white,
                   borderRadius: BorderRadius.all(
@@ -113,10 +113,10 @@ class NextAppointment extends StatelessWidget {
               ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(25.r),
-                child: const Image(
-                  image: AssetImage(ImageAssets.docImg),
-                  height: 100,
-                  width: 100,
+                child: Image(
+                  image: const AssetImage(ImageAssets.docImg),
+                  height: Sizes.s100.h,
+                  width: Sizes.s80.w,
                   fit: BoxFit.fill,
                 ),
               )

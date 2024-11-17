@@ -26,7 +26,8 @@ class AppointmentsWidget extends StatelessWidget {
                 arguments: [appointmentsModel, selectedIndex])
             : () {},
         child: Container(
-          padding: const EdgeInsets.symmetric(vertical: Insets.s24),
+          padding: const EdgeInsets.symmetric(
+              vertical: Insets.s24, horizontal: Insets.s8),
           decoration: BoxDecoration(
             color: ColorManager.white,
             borderRadius: BorderRadius.all(
@@ -58,7 +59,7 @@ class AppointmentsWidget extends StatelessWidget {
             children: [
               Container(
                 padding: const EdgeInsets.symmetric(
-                    horizontal: Insets.s15, vertical: Insets.s16),
+                    horizontal: Insets.s16, vertical: Insets.s16),
                 decoration: BoxDecoration(
                   color: ColorManager.primary,
                   borderRadius: BorderRadius.all(
@@ -135,8 +136,8 @@ class AppointmentsWidget extends StatelessWidget {
                   ? const SizedBox()
                   : Image(
                       image: AssetImage(appointmentsModel.imageDoc!),
-                      height: 130,
-                      width: 100,
+                      height: Sizes.s140.h,
+                      width: Sizes.s60.w,
                       fit: BoxFit.fill,
                     )
             ],

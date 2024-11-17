@@ -166,7 +166,8 @@ class FamousDoctorItems extends StatelessWidget {
                 ? const SizedBox()
                 : Image.asset(
                     famousDocModel.imageDoctor!,
-                    height: 140,
+                    height: Sizes.s100.h,
+                    width: Sizes.s80.w,
                     fit: BoxFit.fill,
                   )
           ],

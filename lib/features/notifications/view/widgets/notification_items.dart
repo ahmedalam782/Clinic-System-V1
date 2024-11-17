@@ -67,7 +67,7 @@ class NotificationItems extends StatelessWidget {
                 height: Sizes.s5.h,
               ),
               SizedBox(
-                width: 260,
+                width: Sizes.s200.w,
                 child: Text(
                   notificationModel.message,
                   style: getRegularStyle(
@@ -90,6 +90,8 @@ class NotificationItems extends StatelessWidget {
                       : notificationModel.type == Type.info
                           ? ImageAssets.iconInfo
                           : ImageAssets.iconAvgTime,
+              height: Sizes.s60.h,
+              width: Sizes.s60.w,
             ),
           )
         ],

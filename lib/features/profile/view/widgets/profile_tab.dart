@@ -104,14 +104,14 @@ class ProfileTab extends StatelessWidget {
                 children: [
                   Column(
                     children: [
-                      ProfileItems(
+                      const ProfileItems(
                         title: 'الطول      :   ',
                         data: ' 180سم',
                       ),
                       SizedBox(
                         height: Sizes.s10.h,
                       ),
-                      ProfileItems(
+                      const ProfileItems(
                         title: 'الوزن        :   ',
                         data: ' 78 كجم',
                       ),
