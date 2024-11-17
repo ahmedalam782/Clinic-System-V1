@@ -9,4 +9,13 @@ class Routes {
   static const String resetPasswordSuccess = '/resetPasswordSuccess';
   static const String otpCode = '/otpCode';
   static const String authenticationSuccess = '/authenticationSuccess';
+  static const String specializationsDetails = '/specializationsDetails';
+  static const String doctorDetails = '/doctorDetails';
+  static const String reservation = '/reservation';
+  static const String reservationSuccess = '/reservationSuccess';
+  static const String appointmentData = '/appointmentData';
+  static const String cancelAppointmentSuccess = '/CancelAppointmentSuccess';
+  static const String sendRateSuccess = '/SendRateSuccess';
+  static const String prescription = '/Prescription';
+  static const String chat = '/Chat';
 }

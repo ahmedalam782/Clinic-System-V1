@@ -35,47 +35,61 @@ class _HomeTabState extends State<HomeTab> {
   ];
   List<FamousDocModel> famousDoc = [
     FamousDocModel(
-        name: "د / محمد ",
-        experience: 'خبرة 7 سنوات',
-        rating: 5,
-        specialtyTitle: "تخصص باطنه",
-        specialtyImage: ImageAssets.stomach,
-        imageDoctor: ImageAssets.famousDoctor),
+      name: "د / محمد ",
+      experience: ' 7 سنوات',
+      rating: 5,
+      specialtyTitle: " باطنه",
+      specialtyImage: ImageAssets.stomach,
+      imageDoctor: ImageAssets.famousDoctor,
+      price: 200,
+    ),
     FamousDocModel(
-        name: "د / ياسمين  ",
-        experience: 'خبرة 5 سنوات',
-        rating: 4.5,
-        specialtyTitle: "تخصص جلدية",
-        specialtyImage: ImageAssets.allergy,
-        imageDoctor: ImageAssets.famousDoctor2),
+      name: "د / ياسمين  ",
+      experience: ' 5 سنوات',
+      rating: 4.5,
+      specialtyTitle: " جلدية",
+      specialtyImage: ImageAssets.allergy,
+      imageDoctor: ImageAssets.famousDoctor2,
+      price: 300,
+    ),
     FamousDocModel(
-        name: "د / يوسف  ",
-        experience: 'خبرة 6 سنوات',
-        rating: 4.5,
-        specialtyTitle: "تخصص أسنان",
-        specialtyImage: ImageAssets.dendist,
-        imageDoctor: ImageAssets.famousDoctor3),
+      name: "د / يوسف  ",
+      experience: ' 6 سنوات',
+      rating: 4.5,
+      specialtyTitle: " أسنان",
+      specialtyImage: ImageAssets.dendist,
+      imageDoctor: ImageAssets.famousDoctor3,
+      price: 250,
+    ),
     FamousDocModel(
-        name: "د / روان  ",
-        experience: 'خبرة 4 سنوات',
-        rating: 4,
-        specialtyTitle: "تخصص عظام",
-        specialtyImage: ImageAssets.orthopedic,
-        imageDoctor: ImageAssets.famousDoctor4),
+      name: "د / روان  ",
+      experience: ' 4 سنوات',
+      rating: 4,
+      specialtyTitle: " عظام",
+      specialtyImage: ImageAssets.orthopedic,
+      imageDoctor: ImageAssets.famousDoctor4,
+      price: 100,
+    ),
   ];
   List<OfferModel> offers = [
     OfferModel(
         offerText:
             "احجز الآن و احصل على أسنان ناصعة البياض مع خصومات تصل لـ 50%",
-        offerImage: ImageAssets.offerImg),
+        offerImage: ImageAssets.offerImg,
+        id: '2',
+        title: 'أسنان'),
     OfferModel(
         offerText:
             "الحقى الفرصه و احصلى على بشره ناعمه خاليه من الحبوب و الشوائب بخصومات تصل لـ 30%",
-        offerImage: ImageAssets.offerImg2),
+        offerImage: ImageAssets.offerImg2,
+        id: '4',
+        title: 'جلدية'),
     OfferModel(
         offerText:
             "احجز الآن و قل وداعا لآلام العظام و المفاصل مع نخبة من أمهر الأطباء و المتخصصين",
-        offerImage: ImageAssets.offerImg3)
+        offerImage: ImageAssets.offerImg3,
+        id: '3',
+        title: 'عظام')
   ];
 
   @override
@@ -172,10 +186,7 @@ class _HomeTabState extends State<HomeTab> {
                           ]),
                       child: Row(
                         children: [
-                          Icon(
-                            Icons.search,
-                            color: ColorManager.black.withOpacity(.30),
-                          ),
+                          Image.asset(ImageAssets.searchNormal),
                           SizedBox(
                             width: Sizes.s10.h,
                           ),
@@ -213,7 +224,7 @@ class _HomeTabState extends State<HomeTab> {
                         famousDocModel: famousDoc[index],
                       ),
                       itemCount: famousDoc.length,
-                      heightListView: 165,
+                      heightListView: 170,
                     ),
                     SizedBox(
                       height: Sizes.s20.h,

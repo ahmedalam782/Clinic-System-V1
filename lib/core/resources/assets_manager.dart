@@ -44,4 +44,16 @@ class ImageAssets {
   static const String authenticationSuccess =
       '$_imagePath/Authentication_Success.png';
   static const String error404 = '$_imagePath/404 error.png';
+  static const String searchNormal = '$_imagePath/search-normal.png';
+  static const String phoneInTalk = '$_imagePath/phone_in_talk.png';
+  static const String ratingImage = '$_imagePath/rating_image.png';
+  static const String iconParkOutlineDown =
+      '$_imagePath/icon_park_outline_down.png';
+  static const String timeManagementImage =
+      '$_imagePath/Time management-image.png';
+  static const String cancelAppointment = '$_imagePath/Cancel-appointment.png';
+  static const String rateSuccess = '$_imagePath/rate_success.png';
+  static const String phoneCallChat = '$_imagePath/phone_call_chat.png';
+  static const String videoCallChat = '$_imagePath/video_call_chat.png';
+  static const String checkAllChat = '$_imagePath/check-all_chat.png';
 }

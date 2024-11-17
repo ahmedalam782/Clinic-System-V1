@@ -27,5 +27,9 @@ class Sizes {
   static const double s50 = 50.0;
   static const double s55 = 55.0;
   static const double s60 = 60.0;
+  static const double s80 = 80.0;
   static const double s83 = 83.0;
+  static const double s90 = 90.0;
+  static const double s100 = 100.0;
+  static const double s140 = 140.0;
 }

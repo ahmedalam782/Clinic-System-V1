@@ -5,6 +5,7 @@ class FamousDocModel {
   final String specialtyTitle;
   final String? specialtyImage;
   final String? imageDoctor;
+  final double price;
 
   FamousDocModel({
     required this.name,
@@ -13,5 +14,6 @@ class FamousDocModel {
     required this.specialtyTitle,
     this.specialtyImage,
     this.imageDoctor,
+    required this.price,
   });
 }

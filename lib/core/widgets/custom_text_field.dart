@@ -30,6 +30,9 @@ class CustomTextField extends StatefulWidget {
     this.borderBackgroundColor,
     this.suffixIcon,
     this.contentPadding,
+    this.widthBorderSide = 0.2,
+    this.borderRadius,
+    this.decoration,
   });
 
   final TextEditingController? controller;
@@ -53,7 +56,9 @@ class CustomTextField extends StatefulWidget {
   final String? Function(String?)? validation;
   final void Function()? onTap;
   final EdgeInsetsGeometry? contentPadding;
-
+  final double widthBorderSide;
+  final double? borderRadius;
+  final Decoration? decoration;
   @override
   State<CustomTextField> createState() => _CustomTextFieldState();
 }
@@ -77,96 +82,102 @@ class _CustomTextFieldState extends State<CustomTextField> {
                     ),
               )
             : const SizedBox(),
-        TextFormField(
-          maxLines: widget.maxLines ?? 1,
-          controller: widget.controller,
-          focusNode: widget.focusNode,
-          readOnly: widget.readOnly,
-          style: widget.textStyle ??
-              getMediumStyle(
-                color: ColorManager.black.withOpacity(.50),
-                fontSize: FontSize.s17,
-              ),
-          obscureText: hidden,
-          keyboardType: widget.textInputType,
-          obscuringCharacter: '*',
-          cursorColor: widget.cursorColor ?? ColorManager.black,
-          onTap: widget.onTap,
-          onEditingComplete: () {
-            widget.focusNode?.unfocus();
-            if (widget.nextFocus != null) {
-              FocusScope.of(context).requestFocus(widget.nextFocus);
-            }
-          },
-          textInputAction: widget.nextFocus == null
-              ? TextInputAction.done
-              : TextInputAction.next,
-          validator: (value) {
-            if (widget.validation == null) {
-              setState(() => errorText = null);
-            } else {
-              setState(() => errorText = widget.validation!(value));
-            }
-            return errorText;
-          },
-          decoration: InputDecoration(
-            contentPadding:
-                widget.contentPadding ?? EdgeInsets.all(Insets.s15.sp),
-            hintText: widget.hint,
-            prefixIcon: widget.prefixIcon,
-            suffixIcon: widget.isObscured
-                ? IconButton(
-                    onPressed: () => setState(() => hidden = !hidden),
-                    iconSize: Sizes.s24.sp,
-                    splashRadius: Sizes.s1,
-                    isSelected: !hidden,
-                    color: widget.cursorColor,
-                    selectedIcon: Icon(
-                      Icons.remove_red_eye_rounded,
-                      color: ColorManager.primary,
-                    ),
-                    icon: Icon(
-                      Icons.visibility_off,
-                      color: ColorManager.primary,
-                    ),
-                  )
-                : widget.suffixIcon,
-            hintStyle: widget.hintTextStyle ??
-                getRegularStyle(
+        Container(
+          decoration: widget.decoration,
+          child: TextFormField(
+            maxLines: widget.maxLines ?? 1,
+            controller: widget.controller,
+            focusNode: widget.focusNode,
+            readOnly: widget.readOnly,
+            style: widget.textStyle ??
+                getMediumStyle(
                   color: ColorManager.black.withOpacity(.50),
-                  fontSize: FontSize.s15,
+                  fontSize: FontSize.s17,
                 ),
-            fillColor: widget.backgroundColor ?? ColorManager.springWood,
-            filled: true,
-            border: OutlineInputBorder(
-              gapPadding: 4,
-              borderRadius: BorderRadius.circular(Sizes.s50),
-              borderSide: BorderSide(
-                width: 0.2,
-                color: widget.borderBackgroundColor ??
-                    ColorManager.black.withOpacity(.50),
+            obscureText: hidden,
+            keyboardType: widget.textInputType,
+            obscuringCharacter: '*',
+            cursorColor: widget.cursorColor ?? ColorManager.black,
+            onTap: widget.onTap,
+            onEditingComplete: () {
+              widget.focusNode?.unfocus();
+              if (widget.nextFocus != null) {
+                FocusScope.of(context).requestFocus(widget.nextFocus);
+              }
+            },
+            textInputAction: widget.nextFocus == null
+                ? TextInputAction.done
+                : TextInputAction.next,
+            validator: (value) {
+              if (widget.validation == null) {
+                setState(() => errorText = null);
+              } else {
+                setState(() => errorText = widget.validation!(value));
+              }
+              return errorText;
+            },
+            decoration: InputDecoration(
+              contentPadding:
+                  widget.contentPadding ?? EdgeInsets.all(Insets.s15.sp),
+              hintText: widget.hint,
+              prefixIcon: widget.prefixIcon,
+              suffixIcon: widget.isObscured
+                  ? IconButton(
+                      onPressed: () => setState(() => hidden = !hidden),
+                      iconSize: Sizes.s24.sp,
+                      splashRadius: Sizes.s1,
+                      isSelected: !hidden,
+                      color: widget.cursorColor,
+                      selectedIcon: Icon(
+                        Icons.remove_red_eye_rounded,
+                        color: ColorManager.primary,
+                      ),
+                      icon: Icon(
+                        Icons.visibility_off,
+                        color: ColorManager.primary,
+                      ),
+                    )
+                  : widget.suffixIcon,
+              hintStyle: widget.hintTextStyle ??
+                  getRegularStyle(
+                    color: ColorManager.black.withOpacity(.50),
+                    fontSize: FontSize.s18,
+                  ),
+              fillColor: widget.backgroundColor ?? ColorManager.springWood,
+              filled: true,
+              border: OutlineInputBorder(
+                gapPadding: 4,
+                borderRadius:
+                    BorderRadius.circular(widget.borderRadius ?? 50.r),
+                borderSide: BorderSide(
+                  width: widget.widthBorderSide,
+                  color: widget.borderBackgroundColor ??
+                      ColorManager.black.withOpacity(.50),
+                ),
               ),
-            ),
-            enabledBorder: OutlineInputBorder(
-              gapPadding: 4,
-              borderRadius: BorderRadius.circular(Sizes.s50),
-              borderSide: BorderSide(
-                width: 0.2,
-                color: widget.borderBackgroundColor ??
-                    ColorManager.black.withOpacity(.50),
+              enabledBorder: OutlineInputBorder(
+                gapPadding: 4,
+                borderRadius:
+                    BorderRadius.circular(widget.borderRadius ?? 50.r),
+                borderSide: BorderSide(
+                  width: widget.widthBorderSide,
+                  color: widget.borderBackgroundColor ??
+                      ColorManager.black.withOpacity(.50),
+                ),
               ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              gapPadding: 4,
-              borderRadius: BorderRadius.circular(Sizes.s50),
-              borderSide: BorderSide(
-                width: 0.2,
-                color: widget.borderBackgroundColor ?? ColorManager.primary,
+              focusedBorder: OutlineInputBorder(
+                gapPadding: 4,
+                borderRadius:
+                    BorderRadius.circular(widget.borderRadius ?? 50.r),
+                borderSide: BorderSide(
+                  width: widget.widthBorderSide,
+                  color: widget.borderBackgroundColor ?? ColorManager.primary,
+                ),
               ),
-            ),
-            errorStyle: TextStyle(
-              fontSize: FontSize.s0,
-              color: ColorManager.transparent,
+              errorStyle: TextStyle(
+                fontSize: FontSize.s0,
+                color: ColorManager.transparent,
+              ),
             ),
           ),
         ),
