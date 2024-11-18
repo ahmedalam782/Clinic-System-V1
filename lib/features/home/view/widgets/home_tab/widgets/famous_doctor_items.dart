@@ -28,7 +28,10 @@ class FamousDoctorItems extends StatelessWidget {
           borderRadius: BorderRadius.all(
             Radius.circular(25.r),
           ),
-          border: Border.all(width: .2, color: ColorManager.springWood),
+          border: Border.all(
+            width: .2,
+            color: ColorManager.springWood,
+          ),
           gradient: LinearGradient(
             begin: Alignment.bottomRight,
             end: Alignment.topLeft,
@@ -41,11 +44,13 @@ class FamousDoctorItems extends StatelessWidget {
           ),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(
-                vertical: Insets.s12,
-                horizontal: Insets.s16,
+              padding: const EdgeInsetsDirectional.only(
+                start: Insets.s16,
+                bottom: Insets.s10,
+                top: Insets.s10,
               ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -93,10 +98,13 @@ class FamousDoctorItems extends StatelessWidget {
                     height: Sizes.s10.h,
                   ),
                   Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Container(
                         padding: const EdgeInsets.symmetric(
-                            horizontal: Insets.s8, vertical: Insets.s4),
+                          horizontal: Insets.s8,
+                          vertical: Insets.s5,
+                        ),
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.all(
                             Radius.circular(25.r),
@@ -115,13 +123,13 @@ class FamousDoctorItems extends StatelessWidget {
                               ),
                             ),
                             SizedBox(
-                              width: Sizes.s10.h,
+                              width: Sizes.s10.w,
                             ),
                             isHome
                                 ? Container(
                                     padding: const EdgeInsets.symmetric(
-                                        horizontal: Insets.s8,
-                                        vertical: Insets.s8),
+                                        horizontal: Insets.s5,
+                                        vertical: Insets.s5),
                                     decoration: BoxDecoration(
                                         borderRadius:
                                             BorderRadius.circular(50.r),
@@ -137,19 +145,19 @@ class FamousDoctorItems extends StatelessWidget {
                                 : famousDocModel.specialtyImage == null
                                     ? const SizedBox()
                                     : CircleAvatar(
-                                        radius: 20.r,
+                                        radius: 18.r,
                                         backgroundColor: ColorManager.white,
                                         child: Image.asset(
                                           famousDocModel.specialtyImage!,
-                                          height: 15,
-                                          width: 18,
+                                          height: Sizes.s20.h,
+                                          width: Sizes.s20.w,
                                         ),
                                       )
                           ],
                         ),
                       ),
                       SizedBox(
-                        width: Sizes.s10.h,
+                        width: Sizes.s10.w,
                       ),
                       CircleAvatar(
                           radius: 20.r,
@@ -166,8 +174,8 @@ class FamousDoctorItems extends StatelessWidget {
                 ? const SizedBox()
                 : Image.asset(
                     famousDocModel.imageDoctor!,
-                    height: Sizes.s100.h,
-                    width: Sizes.s80.w,
+                    height: Sizes.s140.h,
+                    width: Sizes.s100.w,
                     fit: BoxFit.fill,
                   )
           ],

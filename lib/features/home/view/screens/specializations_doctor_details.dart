@@ -155,65 +155,65 @@ class _SpecializationsDoctorDetailsState
           " أطباء ${args.title}",
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: Insets.s24),
-        child: Column(
-          children: [
-            SizedBox(
-              height: Sizes.s10.h,
+      body: Column(
+        children: [
+          Container(
+            margin: const EdgeInsets.only(
+              left: Insets.s24,
+              right: Insets.s24,
+              bottom: Insets.s20,
+              top: Insets.s10,
             ),
-            Container(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: Insets.s15, vertical: Insets.s15),
-              decoration: BoxDecoration(
-                  color: ColorManager.white,
-                  borderRadius: BorderRadius.all(
-                    Radius.circular(50.r),
+            padding: const EdgeInsets.symmetric(
+                horizontal: Insets.s15, vertical: Insets.s15),
+            decoration: BoxDecoration(
+                color: ColorManager.white,
+                borderRadius: BorderRadius.all(
+                  Radius.circular(50.r),
+                ),
+                border: Border.all(
+                  width: .1,
+                  color: ColorManager.black.withOpacity(.25),
+                ),
+                boxShadow: [
+                  BoxShadow(
+                    blurRadius: 7,
+                    offset: const Offset(-2, 2),
+                    color: ColorManager.black.withOpacity(.15),
+                  )
+                ]),
+            child: Row(
+              children: [
+                Image.asset(ImageAssets.searchNormal),
+                SizedBox(
+                  width: Sizes.s10.h,
+                ),
+                Text(
+                  "ابحث عن طبيبك المفضل",
+                  style: getRegularStyle(
+                    color: ColorManager.black.withOpacity(.30),
+                    fontSize: FontSize.s15,
                   ),
-                  border: Border.all(
-                    width: .1,
-                    color: ColorManager.black.withOpacity(.25),
-                  ),
-                  boxShadow: [
-                    BoxShadow(
-                      blurRadius: 7,
-                      offset: const Offset(-2, 2),
-                      color: ColorManager.black.withOpacity(.15),
-                    )
-                  ]),
-              child: Row(
-                children: [
-                  Image.asset(ImageAssets.searchNormal),
-                  SizedBox(
-                    width: Sizes.s10.h,
-                  ),
-                  Text(
-                    "ابحث عن طبيبك المفضل",
-                    style: getRegularStyle(
-                      color: ColorManager.black.withOpacity(.30),
-                      fontSize: FontSize.s15,
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            SizedBox(
-              height: Sizes.s20.h,
-            ),
-            Expanded(
-              child: ListView.separated(
-                itemBuilder: (_, index) => FamousDoctorItems(
+          ),
+          Expanded(
+            child: ListView.separated(
+              itemBuilder: (_, index) => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: Insets.s24),
+                child: FamousDoctorItems(
                   famousDocModel: specialDoc[index],
                   isHome: true,
                 ),
-                separatorBuilder: (_, index) => SizedBox(
-                  height: Sizes.s15.h,
-                ),
-                itemCount: specialDoc.length,
               ),
+              separatorBuilder: (_, index) => SizedBox(
+                height: Sizes.s15.h,
+              ),
+              itemCount: specialDoc.length,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

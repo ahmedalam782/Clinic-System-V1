@@ -40,14 +40,14 @@ class _AppointmentsTabState extends State<AppointmentsTab> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: Insets.s24),
-        child: Column(
-          children: [
-            SizedBox(
-              height: Sizes.s30.h,
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(
+              horizontal: Insets.s24,
+              vertical: Insets.s20,
             ),
-            Center(
+            child: Center(
               child: Text(
                 "جدول المواعيد",
                 style: getBoldStyle(
@@ -56,47 +56,44 @@ class _AppointmentsTabState extends State<AppointmentsTab> {
                 ),
               ),
             ),
-            SizedBox(
-              height: Sizes.s30.h,
+          ),
+          DefaultTabController(
+            length: tabs.length,
+            child: TabBar(
+              isScrollable: true,
+              padding: EdgeInsets.zero,
+              dividerColor: Colors.transparent,
+              indicatorColor: Colors.transparent,
+              tabAlignment: TabAlignment.center,
+              onTap: (index) => setState(() {
+                selectedIndex = index;
+              }),
+              tabs: tabs
+                  .map(
+                    (tab) => TabItems(
+                      title: tab.name,
+                      isSelected: tabs.indexOf(tab) == selectedIndex,
+                    ),
+                  )
+                  .toList(),
             ),
-            DefaultTabController(
-              length: tabs.length,
-              child: TabBar(
-                isScrollable: true,
-                padding: EdgeInsets.zero,
-                dividerColor: Colors.transparent,
-                indicatorColor: Colors.transparent,
-                tabAlignment: TabAlignment.center,
-                onTap: (index) => setState(() {
-                  selectedIndex = index;
-                }),
-                tabs: tabs
-                    .map(
-                      (tab) => TabItems(
-                        title: tab.name,
-                        isSelected: tabs.indexOf(tab) == selectedIndex,
-                      ),
-                    )
-                    .toList(),
+          ),
+          SizedBox(
+            height: Sizes.s20.h,
+          ),
+          Expanded(
+            child: ListView.separated(
+              itemBuilder: (_, index) => AppointmentsWidget(
+                selectedIndex: selectedIndex,
+                appointmentsModel: appointments[index],
               ),
-            ),
-            SizedBox(
-              height: Sizes.s20.h,
-            ),
-            Expanded(
-              child: ListView.separated(
-                itemBuilder: (_, index) => AppointmentsWidget(
-                  selectedIndex: selectedIndex,
-                  appointmentsModel: appointments[index],
-                ),
-                separatorBuilder: (_, index) => SizedBox(
-                  height: Sizes.s20.h,
-                ),
-                itemCount: appointments.length,
+              separatorBuilder: (_, index) => SizedBox(
+                height: Sizes.s20.h,
               ),
+              itemCount: appointments.length,
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

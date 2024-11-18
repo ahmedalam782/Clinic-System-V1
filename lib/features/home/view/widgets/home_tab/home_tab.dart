@@ -95,11 +95,11 @@ class _HomeTabState extends State<HomeTab> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: Insets.s24),
-        child: Column(
-          children: [
-            Row(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: Insets.s24),
+            child: Row(
               children: [
                 Column(
                   children: [
@@ -158,78 +158,72 @@ class _HomeTabState extends State<HomeTab> {
                 ),
               ],
             ),
-            Expanded(
-              child: SingleChildScrollView(
-                child: Column(
-                  children: [
-                    SizedBox(
-                      height: Sizes.s10.h,
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  Container(
+                    margin: const EdgeInsets.only(
+                      left: Insets.s24,
+                      right: Insets.s24,
+                      top: Insets.s10,
+                      bottom: Insets.s20,
                     ),
-                    Container(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: Insets.s15, vertical: Insets.s15),
-                      decoration: BoxDecoration(
-                          color: ColorManager.white,
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(50.r),
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: Insets.s15, vertical: Insets.s15),
+                    decoration: BoxDecoration(
+                        color: ColorManager.white,
+                        borderRadius: BorderRadius.all(
+                          Radius.circular(50.r),
+                        ),
+                        border: Border.all(
+                          width: .1,
+                          color: ColorManager.black.withOpacity(.25),
+                        ),
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 7,
+                            offset: const Offset(-2, 2),
+                            color: ColorManager.black.withOpacity(.15),
+                          )
+                        ]),
+                    child: Row(
+                      children: [
+                        Image.asset(ImageAssets.searchNormal),
+                        SizedBox(
+                          width: Sizes.s10.h,
+                        ),
+                        Text(
+                          "عن ما تبحث؟",
+                          style: getRegularStyle(
+                            color: ColorManager.black.withOpacity(.30),
+                            fontSize: FontSize.s15,
                           ),
-                          border: Border.all(
-                            width: .1,
-                            color: ColorManager.black.withOpacity(.25),
-                          ),
-                          boxShadow: [
-                            BoxShadow(
-                              blurRadius: 7,
-                              offset: const Offset(-2, 2),
-                              color: ColorManager.black.withOpacity(.15),
-                            )
-                          ]),
-                      child: Row(
-                        children: [
-                          Image.asset(ImageAssets.searchNormal),
-                          SizedBox(
-                            width: Sizes.s10.h,
-                          ),
-                          Text(
-                            "عن ما تبحث؟",
-                            style: getRegularStyle(
-                              color: ColorManager.black.withOpacity(.30),
-                              fontSize: FontSize.s15,
-                            ),
-                          ),
-                        ],
-                      ),
+                        ),
+                      ],
                     ),
-                    SizedBox(
-                      height: Sizes.s20.h,
+                  ),
+                  CustomListViewWithLabel(
+                    label: 'التخصصات',
+                    itemBuilder: (_, index) => SpecializationsItems(
+                      specializationsModel: specializations[index],
                     ),
-                    CustomListViewWithLabel(
-                      label: 'التخصصات',
-                      itemBuilder: (_, index) => SpecializationsItems(
-                        specializationsModel: specializations[index],
-                      ),
-                      itemCount: specializations.length,
-                      heightListView: 81,
+                    itemCount: specializations.length,
+                    heightListView: 81,
+                  ),
+                  const NextAppointment(),
+                  CustomListViewWithLabel(
+                    label: 'أشهر الأطباء',
+                    itemBuilder: (_, index) => FamousDoctorItems(
+                      famousDocModel: famousDoc[index],
                     ),
-                    SizedBox(
-                      height: Sizes.s20.h,
-                    ),
-                    const NextAppointment(),
-                    SizedBox(
-                      height: Sizes.s20.h,
-                    ),
-                    CustomListViewWithLabel(
-                      label: 'أشهر الأطباء',
-                      itemBuilder: (_, index) => FamousDoctorItems(
-                        famousDocModel: famousDoc[index],
-                      ),
-                      itemCount: famousDoc.length,
-                      heightListView: 170,
-                    ),
-                    SizedBox(
-                      height: Sizes.s20.h,
-                    ),
-                    CustomListViewWithLabel(
+                    itemCount: famousDoc.length,
+                    heightListView: 157,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: Insets.s16),
+                    child: CustomListViewWithLabel(
                       label: 'آخر العروض',
                       itemBuilder: (_, index) => LastOfferItems(
                         offerModel: offers[index],
@@ -237,15 +231,12 @@ class _HomeTabState extends State<HomeTab> {
                       itemCount: offers.length,
                       heightListView: 123,
                     ),
-                    SizedBox(
-                      height: Sizes.s20.h,
-                    ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

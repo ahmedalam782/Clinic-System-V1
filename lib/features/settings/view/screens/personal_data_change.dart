@@ -71,23 +71,23 @@ class _PersonalDataChangeState extends State<PersonalDataChange> {
                   clipBehavior: Clip.none,
                   children: [
                     CircleAvatar(
-                      radius: 140.r,
+                      radius: 80.r,
                       backgroundColor: ColorManager.white,
                       backgroundImage: const AssetImage(
                         ImageAssets.avatarImg,
                       ),
                     ),
                     Positioned(
-                      left: 20,
-                      bottom: 5,
+                      left: 10,
+                      bottom: -5,
                       child: InkWell(
                         onTap: () {},
                         child: CircleAvatar(
-                          radius: 30.r,
+                          radius: 20.r,
                           backgroundColor: ColorManager.black,
                           child: ImageIcon(
                             color: ColorManager.white,
-                            size: 30,
+                            size: 20,
                             const AssetImage(
                               ImageAssets.iconImageEdit,
                             ),

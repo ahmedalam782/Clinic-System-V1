@@ -25,23 +25,32 @@ class CustomListViewWithLabel extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          label,
-          style: getMediumStyle(
-            color: ColorManager.black,
-            fontSize: FontSize.s18,
+        Padding(
+          padding: EdgeInsets.only(
+            bottom: Insets.s10.h,
+            right: Insets.s24,
+            left: Insets.s24,
           ),
-        ),
-        SizedBox(
-          height: Sizes.s10.h,
+          child: Text(
+            label,
+            style: getMediumStyle(
+              color: ColorManager.black,
+              fontSize: FontSize.s18,
+            ),
+          ),
         ),
         SizedBox(
           height: heightListView,
           child: ListView.separated(
+            padding: EdgeInsets.only(
+              bottom: Insets.s20.h,
+              right: Insets.s24,
+              left: Insets.s24,
+            ),
             scrollDirection: Axis.horizontal,
             itemBuilder: itemBuilder,
             separatorBuilder: (_, index) => SizedBox(
-              width: Sizes.s15.h,
+              width: Sizes.s15.w,
             ),
             itemCount: itemCount,
           ),

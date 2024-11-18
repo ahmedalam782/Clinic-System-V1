@@ -15,19 +15,20 @@ class NextAppointment extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
-          "الموعد القادم",
-          style: getMediumStyle(
-            color: ColorManager.black,
-            fontSize: FontSize.s18,
+        Padding(
+          padding: const EdgeInsets.only(
+              left: Insets.s24, right: Insets.s24, bottom: Insets.s10),
+          child: Text(
+            "الموعد القادم",
+            style: getMediumStyle(
+              color: ColorManager.black,
+              fontSize: FontSize.s18,
+            ),
           ),
         ),
-        SizedBox(
-          height: Sizes.s10.h,
-        ),
         Container(
-          padding: const EdgeInsets.symmetric(
-              vertical: Insets.s24, horizontal: Insets.s8),
+          margin: const EdgeInsets.only(
+              left: Insets.s24, right: Insets.s24, bottom: Insets.s20),
           decoration: BoxDecoration(
             color: ColorManager.primary,
             borderRadius: BorderRadius.all(
@@ -35,10 +36,17 @@ class NextAppointment extends StatelessWidget {
             ),
           ),
           child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: Insets.s16, vertical: Insets.s16),
+                margin: const EdgeInsetsDirectional.only(end: Insets.s24),
+                padding: const EdgeInsetsDirectional.only(
+                  end: Insets.s8,
+                  start: Insets.s8,
+                  top: Insets.s8,
+                  bottom: Insets.s8,
+                ),
+                alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: ColorManager.white,
                   borderRadius: BorderRadius.all(
@@ -64,59 +72,60 @@ class NextAppointment extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                width: Sizes.s30.h,
-              ),
-              Column(
-                children: [
-                  Text(
-                    "كشف باطنه",
-                    style: getBoldStyle(
-                      color: ColorManager.white,
-                      fontSize: FontSize.s16,
+              Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  end: Insets.s24,
+                  top: Insets.s20,
+                  bottom: Insets.s20,
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      "كشف باطنه",
+                      style: getBoldStyle(
+                        color: ColorManager.white,
+                        fontSize: FontSize.s16,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: Sizes.s5.h,
-                  ),
-                  Text(
-                    "د / محمد خالد",
-                    style: getMediumStyle(
-                      color: ColorManager.white,
-                      fontSize: FontSize.s16,
+                    SizedBox(
+                      height: Sizes.s5.h,
                     ),
-                  ),
-                  SizedBox(
-                    height: Sizes.s5.h,
-                  ),
-                  Text(
-                    "يوم الخميس 24/10/2024",
-                    style: getMediumStyle(
-                      color: ColorManager.white,
-                      fontSize: FontSize.s11,
+                    Text(
+                      "د / محمد خالد",
+                      style: getMediumStyle(
+                        color: ColorManager.white,
+                        fontSize: FontSize.s16,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: Sizes.s5.h,
-                  ),
-                  Text(
-                    "من 10:00 ص الى 10:30 ص",
-                    style: getBoldStyle(
-                      color: ColorManager.white,
-                      fontSize: FontSize.s11,
+                    SizedBox(
+                      height: Sizes.s5.h,
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                width: Sizes.s30.h,
+                    Text(
+                      "يوم الخميس 24/10/2024",
+                      style: getMediumStyle(
+                        color: ColorManager.white,
+                        fontSize: FontSize.s11,
+                      ),
+                    ),
+                    SizedBox(
+                      height: Sizes.s5.h,
+                    ),
+                    Text(
+                      "من 10:00 ص الى 10:30 ص",
+                      style: getMediumStyle(
+                        color: ColorManager.white,
+                        fontSize: FontSize.s11,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(25.r),
                 child: Image(
                   image: const AssetImage(ImageAssets.docImg),
                   height: Sizes.s100.h,
-                  width: Sizes.s80.w,
+                  width: Sizes.s100.w,
                   fit: BoxFit.fill,
                 ),
               )

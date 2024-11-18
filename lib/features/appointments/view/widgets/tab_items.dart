@@ -20,7 +20,7 @@ class TabItems extends StatelessWidget {
     return Container(
       alignment: Alignment.center,
       padding: const EdgeInsets.symmetric(
-          horizontal: Insets.s12, vertical: Insets.s10),
+          horizontal: Insets.s20, vertical: Insets.s8),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25.r),
         border: Border.all(

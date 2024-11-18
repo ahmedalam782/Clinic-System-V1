@@ -24,8 +24,8 @@ class LastOfferItems extends StatelessWidget {
             Radius.circular(25.r),
           ),
           gradient: LinearGradient(
-            begin: Alignment.centerLeft,
-            end: Alignment.centerRight,
+            begin: AlignmentDirectional.centerEnd,
+            end: AlignmentDirectional.centerStart,
             colors: [
               ColorManager.babyBlue,
               ColorManager.cornflowerBlue,
@@ -34,12 +34,13 @@ class LastOfferItems extends StatelessWidget {
           ),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Padding(
-              padding: const EdgeInsets.symmetric(
-                  vertical: Insets.s12, horizontal: Insets.s12),
+              padding: const EdgeInsetsDirectional.only(
+                  end: Insets.s8, start: Insets.s10),
               child: SizedBox(
-                width: 145,
+                width: Sizes.s180,
                 child: Text(
                   offerModel.offerText,
                   style: getBoldStyle(
@@ -54,8 +55,8 @@ class LastOfferItems extends StatelessWidget {
                 : Image.asset(
                     offerModel.offerImage!,
                     fit: BoxFit.cover,
-                    width: 200,
-                    height: 120,
+                    width: Sizes.s180,
+                    height: Sizes.s123,
                   )
           ],
         ),

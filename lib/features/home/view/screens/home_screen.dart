@@ -33,108 +33,114 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-        iconPadding: Insets.s16,
-        backgroundColor: ColorManager.springWood,
-        animationCurve: Curves.easeInOut,
-        height: 104.h,
-        index: _selectedIndex,
-        items: [
-          CurvedNavigationBarItem(
-            label: 'الصفحة الرئيسية',
-            labelStyle: _selectedIndex == 0
-                ? getBoldStyle(
-                    color: ColorManager.primary,
-                    fontSize: FontSize.s12,
-                  )
-                : getRegularStyle(
-                    color: ColorManager.grayishBlue,
-                    fontSize: FontSize.s12,
-                  ),
-            child: ImageIcon(
-              color: _selectedIndex == 0
-                  ? ColorManager.primary
-                  : ColorManager.grayishBlue,
-              AssetImage(
-                _selectedIndex != 0
-                    ? ImageAssets.homeIconImg
-                    : ImageAssets.homeIconImgColored,
+      bottomNavigationBar: BottomAppBar(
+        notchMargin: 8,
+        height: Sizes.s100,
+        elevation: 0,
+        color: ColorManager.springWood,
+        padding: EdgeInsets.zero,
+        child: CurvedNavigationBar(
+          backgroundColor: ColorManager.springWood,
+          animationCurve: Curves.decelerate,
+          height: Sizes.s80.h,
+          index: _selectedIndex,
+          items: [
+            CurvedNavigationBarItem(
+              label: 'الصفحة الرئيسية',
+              labelStyle: _selectedIndex == 0
+                  ? getBoldStyle(
+                      color: ColorManager.primary,
+                      fontSize: FontSize.s12,
+                    )
+                  : getRegularStyle(
+                      color: ColorManager.grayishBlue,
+                      fontSize: FontSize.s12,
+                    ),
+              child: ImageIcon(
+                color: _selectedIndex == 0
+                    ? ColorManager.primary
+                    : ColorManager.grayishBlue,
+                AssetImage(
+                  _selectedIndex != 0
+                      ? ImageAssets.homeIconImg
+                      : ImageAssets.homeIconImgColored,
+                ),
               ),
             ),
-          ),
-          CurvedNavigationBarItem(
-            child: ImageIcon(
-              color: _selectedIndex == 1
-                  ? ColorManager.primary
-                  : ColorManager.grayishBlue,
-              AssetImage(
-                _selectedIndex == 1
-                    ? ImageAssets.calendarCheckIconImgColored
-                    : ImageAssets.calendarCheckIconImg,
+            CurvedNavigationBarItem(
+              child: ImageIcon(
+                color: _selectedIndex == 1
+                    ? ColorManager.primary
+                    : ColorManager.grayishBlue,
+                AssetImage(
+                  _selectedIndex == 1
+                      ? ImageAssets.calendarCheckIconImgColored
+                      : ImageAssets.calendarCheckIconImg,
+                ),
               ),
+              label: 'المواعيد',
+              labelStyle: _selectedIndex == 1
+                  ? getBoldStyle(
+                      color: ColorManager.primary,
+                      fontSize: FontSize.s12,
+                    )
+                  : getRegularStyle(
+                      color: ColorManager.grayishBlue,
+                      fontSize: FontSize.s12,
+                    ),
             ),
-            label: 'المواعيد',
-            labelStyle: _selectedIndex == 1
-                ? getBoldStyle(
-                    color: ColorManager.primary,
-                    fontSize: FontSize.s12,
-                  )
-                : getRegularStyle(
-                    color: ColorManager.grayishBlue,
-                    fontSize: FontSize.s12,
-                  ),
-          ),
-          CurvedNavigationBarItem(
-            child: ImageIcon(
-              color: _selectedIndex == 2
-                  ? ColorManager.primary
-                  : ColorManager.grayishBlue,
-              AssetImage(
-                _selectedIndex == 2
-                    ? ImageAssets.notificationIconImgColored
-                    : ImageAssets.notificationIconImg,
+            CurvedNavigationBarItem(
+              child: ImageIcon(
+                color: _selectedIndex == 2
+                    ? ColorManager.primary
+                    : ColorManager.grayishBlue,
+                AssetImage(
+                  _selectedIndex == 2
+                      ? ImageAssets.notificationIconImgColored
+                      : ImageAssets.notificationIconImg,
+                ),
               ),
+              label: 'الاشعارات',
+              labelStyle: _selectedIndex == 2
+                  ? getBoldStyle(
+                      color: ColorManager.primary,
+                      fontSize: FontSize.s12,
+                    )
+                  : getRegularStyle(
+                      color: ColorManager.grayishBlue,
+                      fontSize: FontSize.s12,
+                    ),
             ),
-            label: 'الاشعارات',
-            labelStyle: _selectedIndex == 2
-                ? getBoldStyle(
-                    color: ColorManager.primary,
-                    fontSize: FontSize.s12,
-                  )
-                : getRegularStyle(
-                    color: ColorManager.grayishBlue,
-                    fontSize: FontSize.s12,
-                  ),
-          ),
-          CurvedNavigationBarItem(
-            child: ImageIcon(
-              color: _selectedIndex == 3
-                  ? ColorManager.primary
-                  : ColorManager.grayishBlue,
-              AssetImage(
-                _selectedIndex == 3
-                    ? ImageAssets.userIconImgColored
-                    : ImageAssets.userIconImg,
+            CurvedNavigationBarItem(
+              child: ImageIcon(
+                color: _selectedIndex == 3
+                    ? ColorManager.primary
+                    : ColorManager.grayishBlue,
+                AssetImage(
+                  _selectedIndex == 3
+                      ? ImageAssets.userIconImgColored
+                      : ImageAssets.userIconImg,
+                ),
               ),
+              label: 'الملف',
+              labelStyle: _selectedIndex == 3
+                  ? getBoldStyle(
+                      color: ColorManager.primary,
+                      fontSize: FontSize.s12,
+                    )
+                  : getRegularStyle(
+                      color: ColorManager.grayishBlue,
+                      fontSize: FontSize.s12,
+                    ),
             ),
-            label: 'الملف',
-            labelStyle: _selectedIndex == 3
-                ? getBoldStyle(
-                    color: ColorManager.primary,
-                    fontSize: FontSize.s12,
-                  )
-                : getRegularStyle(
-                    color: ColorManager.grayishBlue,
-                    fontSize: FontSize.s12,
-                  ),
-          ),
-        ],
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        letIndexChange: (index) => true,
+          ],
+          onTap: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          letIndexChange: (index) => true,
+        ),
       ),
       body: IndexedStack(
         index: _selectedIndex,

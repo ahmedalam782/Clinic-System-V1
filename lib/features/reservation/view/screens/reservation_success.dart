@@ -23,7 +23,7 @@ class _ReservationSuccessState extends State<ReservationSuccess> {
       const Duration(seconds: 3),
       () {
         if (!mounted) return;
-        Navigator.pushReplacementNamed(context, Routes.home);
+        Navigator.pushNamedAndRemoveUntil(context, Routes.home, (_) => false);
       },
     );
   }

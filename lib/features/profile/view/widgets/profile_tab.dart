@@ -18,110 +18,139 @@ class ProfileTab extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: Insets.s24),
         child: SingleChildScrollView(
-          child: Column(
+          child: Stack(
+            clipBehavior: Clip.none,
+            alignment: AlignmentDirectional.topEnd,
             children: [
-              SizedBox(
-                height: Sizes.s30.h,
-              ),
-              Center(
-                child: Text(
-                  "الملف الشخصى",
-                  style: getBoldStyle(
-                    color: ColorManager.black,
-                    fontSize: FontSize.s24,
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: Sizes.s30.h,
-              ),
-              Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.end,
+              Column(
                 children: [
-                  CircleAvatar(
-                    radius: 120.r,
-                    backgroundColor: ColorManager.white,
-                    backgroundImage: const AssetImage(
-                      ImageAssets.avatarImg,
+                  SizedBox(
+                    height: Sizes.s30.h,
+                  ),
+                  Center(
+                    child: Text(
+                      "الملف الشخصى",
+                      style: getBoldStyle(
+                        color: ColorManager.black,
+                        fontSize: FontSize.s24,
+                      ),
                     ),
                   ),
                   SizedBox(
-                    width: Sizes.s60.w,
+                    height: Sizes.s30.h,
                   ),
-                  InkWell(
-                    onTap: () =>
-                        Navigator.of(context).pushNamed(Routes.settings),
-                    child: const ImageIcon(
-                      size: 40,
-                      AssetImage(
-                        ImageAssets.settingsIcon,
+                  Padding(
+                    padding: const EdgeInsetsDirectional.only(end: Insets.s24),
+                    child: CircleAvatar(
+                      radius: 100.r,
+                      backgroundColor: ColorManager.white,
+                      backgroundImage: const AssetImage(
+                        ImageAssets.avatarImg,
                       ),
                     ),
                   ),
-                ],
-              ),
-              Text(
-                "M7md Henedy",
-                style: getBoldStyle(
-                  color: ColorManager.black,
-                  fontSize: FontSize.s24,
-                ),
-              ),
-              SizedBox(
-                height: Sizes.s30.h,
-              ),
-              const ProfileItems(
-                title: 'الايميل    : ',
-                data: 'mohamedkhhenedy@gmail.com',
-              ),
-              SizedBox(
-                height: Sizes.s10.h,
-              ),
-              const ProfileItems(
-                title: 'الموبايل  : ',
-                data: '01009404933',
-              ),
-              SizedBox(
-                height: Sizes.s10.h,
-              ),
-              const ProfileItems(
-                title: 'السن        :   ',
-                data: ' 24 سنه',
-              ),
-              SizedBox(
-                height: Sizes.s10.h,
-              ),
-              const ProfileItems(
-                title: 'الجنس     :   ',
-                data: ' ذكر',
-              ),
-              SizedBox(
-                height: Sizes.s10.h,
-              ),
-              Stack(
-                alignment: Alignment.topLeft,
-                children: [
-                  Column(
+                  // Row(
+                  //   crossAxisAlignment: CrossAxisAlignment.start,
+                  //   mainAxisAlignment: MainAxisAlignment.center,
+                  //   children: [
+                  //     Padding(
+                  //       padding:
+                  //           const EdgeInsetsDirectional.only(end: Insets.s24),
+                  //       child: CircleAvatar(
+                  //         radius: 100.r,
+                  //         backgroundColor: ColorManager.white,
+                  //         backgroundImage: const AssetImage(
+                  //           ImageAssets.avatarImg,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //     InkWell(
+                  //       onTap: () =>
+                  //           Navigator.of(context).pushNamed(Routes.settings),
+                  //       child: const ImageIcon(
+                  //         size: 40,
+                  //         AssetImage(
+                  //           ImageAssets.settingsIcon,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
+                  Text(
+                    "M7md Henedy",
+                    style: getBoldStyle(
+                      color: ColorManager.black,
+                      fontSize: FontSize.s24,
+                    ),
+                  ),
+                  SizedBox(
+                    height: Sizes.s30.h,
+                  ),
+                  const ProfileItems(
+                    title: 'الايميل    : ',
+                    data: 'mohamedkhhenedy@gmail.com',
+                  ),
+                  SizedBox(
+                    height: Sizes.s10.h,
+                  ),
+                  const ProfileItems(
+                    title: 'الموبايل  : ',
+                    data: '01009404933',
+                  ),
+                  SizedBox(
+                    height: Sizes.s10.h,
+                  ),
+                  const ProfileItems(
+                    title: 'السن        :   ',
+                    data: ' 24 سنه',
+                  ),
+                  SizedBox(
+                    height: Sizes.s10.h,
+                  ),
+                  const ProfileItems(
+                    title: 'الجنس     :   ',
+                    data: ' ذكر',
+                  ),
+                  SizedBox(
+                    height: Sizes.s10.h,
+                  ),
+                  Stack(
+                    alignment: Alignment.topLeft,
                     children: [
-                      const ProfileItems(
-                        title: 'الطول      :   ',
-                        data: ' 180سم',
+                      Column(
+                        children: [
+                          const ProfileItems(
+                            title: 'الطول      :   ',
+                            data: ' 180سم',
+                          ),
+                          SizedBox(
+                            height: Sizes.s10.h,
+                          ),
+                          const ProfileItems(
+                            title: 'الوزن        :   ',
+                            data: ' 78 كجم',
+                          ),
+                        ],
                       ),
-                      SizedBox(
-                        height: Sizes.s10.h,
-                      ),
-                      const ProfileItems(
-                        title: 'الوزن        :   ',
-                        data: ' 78 كجم',
+                      Center(
+                        child: Image.asset(ImageAssets.creativeWritingProfile),
                       ),
                     ],
                   ),
-                  Center(
-                    child: Image.asset(ImageAssets.creativeWritingProfile),
-                  ),
                 ],
-              )
+              ),
+              Positioned(
+                top: Sizes.s100.h,
+                child: InkWell(
+                  onTap: () => Navigator.of(context).pushNamed(Routes.settings),
+                  child: const ImageIcon(
+                    size: 40,
+                    AssetImage(
+                      ImageAssets.settingsIcon,
+                    ),
+                  ),
+                ),
+              ),
             ],
           ),
         ),

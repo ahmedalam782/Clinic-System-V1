@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'color_manager.dart';
 import 'font_manager.dart';
@@ -9,10 +8,11 @@ TextStyle _getTextStyle(
   FontWeight fontWeight,
   Color color,
 ) =>
-    GoogleFonts.cairo(
+    TextStyle(
       fontSize: fontSize,
       color: color,
       fontWeight: fontWeight,
+      fontFamily: 'Cairo',
     );
 
 TextStyle getLightStyle({
@@ -65,10 +65,11 @@ TextStyle getBoldStyle({
       color,
     );
 
-TextStyle getTextWithLine() => GoogleFonts.cairo(
+TextStyle getTextWithLine() => TextStyle(
       color: ColorManager.black,
       fontSize: FontSize.s16,
       fontWeight: FontWeight.w400,
       decoration: TextDecoration.lineThrough,
       decorationColor: ColorManager.black,
+      fontFamily: 'Cairo',
     );

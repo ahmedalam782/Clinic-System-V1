@@ -26,8 +26,8 @@ class AppointmentsWidget extends StatelessWidget {
                 arguments: [appointmentsModel, selectedIndex])
             : () {},
         child: Container(
-          padding: const EdgeInsets.symmetric(
-              vertical: Insets.s24, horizontal: Insets.s8),
+          margin: const EdgeInsetsDirectional.only(
+              bottom: Insets.s12, start: Insets.s24, end: Insets.s24),
           decoration: BoxDecoration(
             color: ColorManager.white,
             borderRadius: BorderRadius.all(
@@ -55,11 +55,17 @@ class AppointmentsWidget extends StatelessWidget {
             ],
           ),
           child: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: Insets.s16, vertical: Insets.s16),
+                margin: const EdgeInsetsDirectional.only(end: Insets.s24),
+                padding: const EdgeInsetsDirectional.only(
+                  end: Insets.s8,
+                  start: Insets.s8,
+                  top: Insets.s8,
+                  bottom: Insets.s8,
+                ),
+                alignment: Alignment.center,
                 decoration: BoxDecoration(
                   color: ColorManager.primary,
                   borderRadius: BorderRadius.all(
@@ -85,59 +91,61 @@ class AppointmentsWidget extends StatelessWidget {
                   ],
                 ),
               ),
-              SizedBox(
-                width: Sizes.s10.h,
-              ),
-              Column(
-                children: [
-                  Text(
-                    " كشف ${appointmentsModel.typeAppointments} ",
-                    style: getBoldStyle(
-                      color: ColorManager.black,
-                      fontSize: FontSize.s20,
+              Padding(
+                padding: const EdgeInsetsDirectional.only(
+                  top: Insets.s20,
+                  bottom: Insets.s20,
+                  end: Insets.s12,
+                  start: Insets.s8,
+                ),
+                child: Column(
+                  children: [
+                    Text(
+                      " كشف ${appointmentsModel.typeAppointments} ",
+                      style: getBoldStyle(
+                        color: ColorManager.black,
+                        fontSize: FontSize.s20,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: Sizes.s5.h,
-                  ),
-                  Text(
-                    appointmentsModel.docName,
-                    style: getMediumStyle(
-                      color: ColorManager.black,
-                      fontSize: FontSize.s18,
+                    SizedBox(
+                      height: Sizes.s5.h,
                     ),
-                  ),
-                  SizedBox(
-                    height: Sizes.s5.h,
-                  ),
-                  Text(
-                    appointmentsModel.data,
-                    style: getMediumStyle(
-                      color: ColorManager.black,
-                      fontSize: FontSize.s14,
+                    Text(
+                      appointmentsModel.docName,
+                      style: getMediumStyle(
+                        color: ColorManager.black,
+                        fontSize: FontSize.s18,
+                      ),
                     ),
-                  ),
-                  SizedBox(
-                    height: Sizes.s5.h,
-                  ),
-                  Text(
-                    appointmentsModel.time,
-                    style: getMediumStyle(
-                      color: ColorManager.black,
-                      fontSize: FontSize.s14,
+                    SizedBox(
+                      height: Sizes.s5.h,
                     ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                width: Sizes.s20.h,
+                    Text(
+                      appointmentsModel.data,
+                      style: getMediumStyle(
+                        color: ColorManager.black,
+                        fontSize: FontSize.s14,
+                      ),
+                    ),
+                    SizedBox(
+                      height: Sizes.s5.h,
+                    ),
+                    Text(
+                      appointmentsModel.time,
+                      style: getMediumStyle(
+                        color: ColorManager.black,
+                        fontSize: FontSize.s14,
+                      ),
+                    ),
+                  ],
+                ),
               ),
               appointmentsModel.imageDoc == null
                   ? const SizedBox()
                   : Image(
                       image: AssetImage(appointmentsModel.imageDoc!),
                       height: Sizes.s140.h,
-                      width: Sizes.s60.w,
+                      width: Sizes.s80.w,
                       fit: BoxFit.fill,
                     )
             ],

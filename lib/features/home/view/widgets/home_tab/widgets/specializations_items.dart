@@ -21,7 +21,7 @@ class SpecializationsItems extends StatelessWidget {
           arguments: specializationsModel),
       child: Container(
         padding: const EdgeInsets.symmetric(
-          horizontal: Insets.s34,
+          horizontal: Insets.s16,
         ),
         decoration: BoxDecoration(
           color: ColorManager.softPeach,
@@ -31,9 +31,13 @@ class SpecializationsItems extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Image.asset(specializationsModel.imageName),
-            SizedBox(
-              width: Sizes.s28.h,
+            Padding(
+              padding: const EdgeInsetsDirectional.only(end: Insets.s24),
+              child: Image.asset(
+                specializationsModel.imageName,
+                height: 48,
+                width: 48,
+              ),
             ),
             Text(
               specializationsModel.title,
